@@ -1,0 +1,6 @@
+июл. 14, 2021 7:59:56 PM com.loiko.alex.Runner main
+INFO: The application is running
+июл. 14, 2021 7:59:56 PM com.loiko.alex.Runner run
+INFO: The application context is running
+июл. 14, 2021 7:59:56 PM com.loiko.alex.Runner main
+INFO: The application is finishing
