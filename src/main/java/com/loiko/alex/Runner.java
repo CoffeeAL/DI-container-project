@@ -2,12 +2,11 @@ package com.loiko.alex;
 
 import com.loiko.alex.bean.BeanFactory;
 import com.loiko.alex.context.ApplicationContext;
+import com.loiko.alex.logger.LoggerFactory;
 
-import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.util.logging.FileHandler;
+import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.logging.SimpleFormatter;
 
 /**
  * @author Alexey Loiko
@@ -15,20 +14,7 @@ import java.util.logging.SimpleFormatter;
  */
 public class Runner {
 
-    private static final Logger logger = Logger.getLogger(Runner.class.getName());
-    private static FileHandler fileHandler;
-    private static final SimpleFormatter simpleFormatter = new SimpleFormatter();
-    private static final String LOG_FILE = "runner-log.txt";
-
-    static {
-        try {
-            fileHandler = new FileHandler(LOG_FILE);
-            fileHandler.setFormatter(simpleFormatter);
-            logger.addHandler(fileHandler);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    private static Logger logger = LoggerFactory.getLogger();
 
     public static void main(String[] args) throws ClassNotFoundException {
         logger.info("The application is running");
@@ -38,9 +24,10 @@ public class Runner {
             InjectorImpl injector = context.getBean(InjectorImpl.class);
             injector.doSuccessfulInjection();
         } catch (InvocationTargetException | InstantiationException | NoSuchMethodException | IllegalAccessException e) {
+            logger.log(Level.SEVERE, "Injection has been failed");
             throw new RuntimeException(e.getMessage());
         } catch (NoSuchFieldException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e.getMessage());
         }
         logger.info("The application is finishing");
     }

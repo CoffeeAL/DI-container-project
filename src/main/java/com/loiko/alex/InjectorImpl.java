@@ -2,6 +2,9 @@ package com.loiko.alex;
 
 import com.loiko.alex.annotation.Inject;
 import com.loiko.alex.annotation.PostConstruct;
+import com.loiko.alex.logger.LoggerFactory;
+
+import java.util.logging.Logger;
 
 /**
  * @author Alexey Loiko
@@ -9,12 +12,21 @@ import com.loiko.alex.annotation.PostConstruct;
  */
 public class InjectorImpl implements Injector {
 
-    @Inject
     private Provider provider;
+    private static Logger logger = LoggerFactory.getLogger();
+
+//    @Inject
+//    public InjectorImpl() {
+//    }
+//
+//    @Inject
+    public InjectorImpl(Provider provider) {
+        this.provider = provider;
+    }
 
     @PostConstruct
     public void callPostConstructMethod() {
-        System.out.println("Post construct method has been called.");
+        logger.info("Post construct method called");
     }
 
     public <T> Provider<T> getProvider(Class<T> type) {
@@ -30,7 +42,7 @@ public class InjectorImpl implements Injector {
     }
 
     public void doSuccessfulInjection() {
-        System.out.println("Successful injection");
+        logger.info("Successfull injection has been done");
     }
 
     public Provider getProvider() {

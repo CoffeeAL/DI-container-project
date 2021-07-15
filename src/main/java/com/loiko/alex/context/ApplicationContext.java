@@ -15,10 +15,10 @@ import java.util.Set;
  */
 public class ApplicationContext {
 
-    @Inject
     private BeanFactory factory;
     private final Map<Class, Object> beans = new HashMap<>();
 
+    @Inject
     public ApplicationContext() {
     }
 

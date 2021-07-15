@@ -1,6 +1,6 @@
-июл. 14, 2021 7:59:56 PM com.loiko.alex.Runner main
+июл. 16, 2021 12:19:00 AM com.loiko.alex.Runner main
 INFO: The application is running
-июл. 14, 2021 7:59:56 PM com.loiko.alex.Runner run
+июл. 16, 2021 12:19:00 AM com.loiko.alex.Runner run
 INFO: The application context is running
-июл. 14, 2021 7:59:56 PM com.loiko.alex.Runner main
-INFO: The application is finishing
+июл. 16, 2021 12:19:00 AM com.loiko.alex.bean.BeanFactory getBean
+SEVERE: There aren't any default constructors

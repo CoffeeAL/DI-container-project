@@ -10,6 +10,6 @@ import java.lang.annotation.Target;
  * @project DIcontainerproject
  */
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.FIELD)
+@Target({ElementType.CONSTRUCTOR})
 public @interface Inject {
 }
