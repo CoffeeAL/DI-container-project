@@ -22,7 +22,7 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
-    public Event save(Event event) {
+    public boolean save(Event event) {
         if (event == null) {
             throw new NullEventException("Event not found");
         }

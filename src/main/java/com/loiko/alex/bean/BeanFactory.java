@@ -32,8 +32,8 @@ public class BeanFactory {
     private static Logger logger = LoggerFactory.getLogger();
 
     public BeanFactory(ApplicationContext context) {
-        this.configuration = new PackageScanner();
-        this.beanConfigurator = new BeanConfiguratorImpl(configuration.getPackageToScan(), configuration.interfaceToImplementations());
+        configuration = new PackageScanner();
+        beanConfigurator = new BeanConfiguratorImpl(configuration.getPackageToScan(), configuration.interfaceToImplementations());
         this.context = context;
     }
 
@@ -43,7 +43,7 @@ public class BeanFactory {
             implementationClass = beanConfigurator.getImplementationClass(clazz);
         }
         int amountAnnotatedConstructors = countAnnotatedConstructors(implementationClass);
-        if (amountAnnotatedConstructors == 0 && !(isThereIsNoDefaultConstructors(implementationClass))) {
+        if (amountAnnotatedConstructors == 0 && !(isThereDefaultConstructor(implementationClass))) {
             logger.log(Level.SEVERE, "There aren't any default constructors");
             throw new ConstructorNotFoundException("Default constructor hasn't been found");
         }
@@ -61,7 +61,7 @@ public class BeanFactory {
         return constructors.size();
     }
 
-    private boolean isThereIsNoDefaultConstructors(Class<?> clazz) {
+    private boolean isThereDefaultConstructor(Class<?> clazz) {
         boolean result = false;
         Constructor<?>[] declaredConstructors = clazz.getDeclaredConstructors();
         for (Constructor<?> constructor : declaredConstructors) {

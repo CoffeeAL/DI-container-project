@@ -20,11 +20,8 @@ public class EventDaoImpl implements EventDao {
     }
 
     @Override
-    public Event save(Event event) {
-        int counter = Event.getCOUNTER();
-        int id = ++counter;
-        event.setId(id);
-        return event;
+    public boolean save(Event event) {
+        return manager.getEvents().add(event);
     }
 
     @Override

@@ -17,6 +17,7 @@ public class ApplicationContext {
 
     private BeanFactory factory;
     private final Map<Class, Object> beans = new HashMap<>();
+    private static Map<Class, Set<Object>> interfacesWithTheirImplementations = new HashMap();
 
     @Inject
     public ApplicationContext() {
@@ -44,5 +45,9 @@ public class ApplicationContext {
 
     public void setFactory(BeanFactory factory) {
         this.factory = factory;
+    }
+
+    public static Map<Class, Set<Object>> getInterfacesWithTheirImplementations() {
+        return interfacesWithTheirImplementations;
     }
 }

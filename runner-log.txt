@@ -1,6 +1,8 @@
-июл. 16, 2021 12:19:00 AM com.loiko.alex.Runner main
+июл. 18, 2021 3:03:17 PM com.loiko.alex.Runner main
 INFO: The application is running
-июл. 16, 2021 12:19:00 AM com.loiko.alex.Runner run
+июл. 18, 2021 3:03:17 PM com.loiko.alex.Runner run
 INFO: The application context is running
-июл. 16, 2021 12:19:00 AM com.loiko.alex.bean.BeanFactory getBean
-SEVERE: There aren't any default constructors
+июл. 18, 2021 3:03:17 PM com.loiko.alex.InjectorImpl doSuccessfulInjection
+INFO: Successfull injection has been done
+июл. 18, 2021 3:03:17 PM com.loiko.alex.Runner main
+INFO: The application is finishing

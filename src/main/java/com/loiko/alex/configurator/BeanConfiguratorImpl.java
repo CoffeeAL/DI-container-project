@@ -16,7 +16,7 @@ public class BeanConfiguratorImpl implements BeanConfigurator {
     private final Map<Class, Class> interfaceToImplementation;
 
     public BeanConfiguratorImpl(String packageToScan, Map<Class, Class> interfaceToImplementation) {
-        this.demonstrator = new ReflectionDemonstrator(packageToScan);
+        demonstrator = new ReflectionDemonstrator(packageToScan);
         this.interfaceToImplementation = new HashMap<>(interfaceToImplementation);
     }
 

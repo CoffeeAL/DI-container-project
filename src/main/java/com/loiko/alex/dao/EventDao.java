@@ -10,7 +10,7 @@ import java.util.Optional;
  */
 public interface EventDao {
 
-    Event save(Event event);
+    boolean save(Event event);
 
     Optional<Event> getById(int id);
 

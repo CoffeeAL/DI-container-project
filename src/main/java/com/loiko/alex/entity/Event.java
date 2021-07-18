@@ -11,6 +11,7 @@ public class Event {
     private String description;
 
     public Event(String description) {
+        id = ++COUNTER;
         this.description = description;
     }
 
@@ -18,15 +19,7 @@ public class Event {
         return description;
     }
 
-    public static int getCOUNTER() {
-        return COUNTER;
-    }
-
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 }
